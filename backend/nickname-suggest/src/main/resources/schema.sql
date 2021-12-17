@@ -5,7 +5,8 @@ CREATE TABLE USERS (
   user_key VARCHAR(20) NOT NULL,
   user_name VARCHAR(100) NOT NULL,
   user_gender VARCHAR(20) DEFAULT NULL,
-  korean OTHER NOT NULL
+  korean_key INT NOT NULL,
+  country VARCHAR(100) NOT NULL
 );
 
 DROP TABLE IF EXISTS KOREAN;
@@ -16,4 +17,4 @@ CREATE TABLE KOREAN (
   korean_name VARCHAR(100) NOT NULL,
   korean_pronounce VARCHAR(100) NOT NULL,
   korean_gender VARCHAR(20) DEFAULT NULL
-);
+) charset = utf8;
