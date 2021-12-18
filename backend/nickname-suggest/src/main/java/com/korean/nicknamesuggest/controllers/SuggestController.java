@@ -22,10 +22,10 @@ public class SuggestController {
     Logger logger = LoggerFactory.getLogger(SuggestController.class);
 
     @Autowired
-    private KoreanService koreanService;
+    private KoreanRepository koreanRepository;
 
     @Autowired
-    private UserService userService;
+    private UserRepository userRepository;
 
     @GetMapping("/female/{name}")
     public ArrayList<String> suggestFemaleController(@PathVariable String name) {
@@ -40,9 +40,9 @@ public class SuggestController {
         user.setKey(key);
         user.setName(name);
 
-        Korean korean = koreanService.findByKey(key);
+        Korean korean = koreanRepository.findByKey(key);
         user.setKorean(korean);
-        userService.save(user);
+        userRepository.save(user);
 
         logger.info("name   : "+user.getName());
         logger.info("id     : "+user.getId());
@@ -65,31 +65,31 @@ public class SuggestController {
             k1.setName("다은");
             k1.setGender("female");
             k1.setPronounce("da-un");
-            koreanService.save(k1);
+            koreanRepository.save(k1);
 
             Korean k2 = new Korean();
             k2.setKey("aa");
             k2.setName("이유");
             k2.setGender("female");
             k2.setPronounce("iu");
-            koreanService.save(k2);
+            koreanRepository.save(k2);
 
 
             User user = new User();
             user.setGender("female");
             user.setKey("aa");
             user.setName("aajin");
-            Korean k = koreanService.findByKey("aa");
+            Korean k = koreanRepository.findByKey("aa");
             user.setKorean(k);
-            userService.save(user);
+            userRepository.save(user);
 
             User user2 = new User();
             user2.setGender("female");
             user2.setKey("da");
             user2.setName("darkman");
-            Korean korean2 = koreanService.findByKey("da");
+            Korean korean2 = koreanRepository.findByKey("da");
             user2.setKorean(korean2);
-            userService.save(user2);
+            userRepository.save(user2);
 
         } catch (Exception e){
             System.out.println("exception");
