@@ -19,7 +19,7 @@ public class User {
     @Column(name = "user_gender")
     private String gender;
 
-    @ManyToOne
+    @OneToMany
     @JoinColumn(name = "korean_key")
     private String koreanKey;
 
