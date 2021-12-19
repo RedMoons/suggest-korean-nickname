@@ -31,13 +31,13 @@ public class SuggestController {
 
 
 
-        String key = name.substring(0,1);
+        String id = name.substring(0,1);
         User user = new User();
         user.setGender("female");
-        user.setKey(key);
+        user.setKey(id);
         user.setName(name);
 
-        Korean korean = koreanRepository.findById(key);
+        Korean korean = koreanRepository.findById(id);
         user.setKorean(korean);
         userRepository.save(user);
 

@@ -12,8 +12,8 @@ CREATE TABLE users (
 DROP TABLE IF EXISTS korean;
 
 CREATE TABLE korean (
-  korean_id INT AUTO_INCREMENT  PRIMARY KEY,
-  korean_key VARCHAR(20) NOT NULL,
+  korean_id INT NOT NULL,
+  korean_key VARCHAR(20) PRIMARY KEY ,
   korean_name VARCHAR(100) NOT NULL,
   korean_pronounce VARCHAR(100) NOT NULL,
   korean_gender VARCHAR(20) DEFAULT NULL
