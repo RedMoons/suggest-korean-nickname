@@ -22,7 +22,7 @@ public class KoreanService {
         return korean;
     }
 
-    public Korean findById(String id) {
+    public Optional<Korean> findById(String id) {
         return koreanRepository.findById(id);
     }
 }

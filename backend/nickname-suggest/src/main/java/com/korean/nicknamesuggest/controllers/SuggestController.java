@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @RestController
 public class SuggestController {
@@ -37,8 +38,8 @@ public class SuggestController {
         user.setKey(id);
         user.setName(name);
 
-        Korean korean = koreanRepository.findById(id);
-        user.setKorean(korean);
+        Optional<Korean> korean = koreanRepository.findById(id);
+        user.setKoreanKey(korean.get().getKey());
         userRepository.save(user);
 
         logger.info("name   : "+user.getName());
@@ -47,8 +48,8 @@ public class SuggestController {
         logger.info("gender : "+user.getGender());
 
         ArrayList<String> list = new ArrayList();
-        list.add(korean.getName());
-        list.add(korean.getPronounce());
+        list.add(korean.get().getName());
+        list.add(korean.get().getPronounce());
         return list;
     }
 
@@ -76,16 +77,16 @@ public class SuggestController {
             user.setGender("female");
             user.setKey("aa");
             user.setName("aajin");
-            Korean k = koreanRepository.findById("a");
-            user.setKorean(k);
+            Optional<Korean> k = koreanRepository.findById("a");
+            user.setKoreanKey(k.get().getKey());
             userRepository.save(user);
 
             User user2 = new User();
             user2.setGender("female");
             user2.setKey("da");
             user2.setName("darkman");
-            Korean korean2 = koreanRepository.findById("d");
-            user2.setKorean(korean2);
+            Optional<Korean> korean2 = koreanRepository.findById("d");
+            user2.setKoreanKey(korean2.get().getKey());
             userRepository.save(user2);
 
         } catch (Exception e){

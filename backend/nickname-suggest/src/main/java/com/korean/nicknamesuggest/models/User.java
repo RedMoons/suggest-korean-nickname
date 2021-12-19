@@ -20,19 +20,19 @@ public class User {
     private String gender;
 
     @ManyToOne
-    @JoinColumn(name = "korean_id")
-    private Korean korean;
+    @JoinColumn(name = "korean_key")
+    private String koreanKey;
 
     public User() {
 
     }
 
-    public Korean getKorean() {
-        return korean;
+    public String getKoreanKey() {
+        return koreanKey;
     }
 
-    public void setKorean(Korean korean) {
-        this.korean = korean;
+    public void setKoreanKey(String koreanKey) {
+        this.koreanKey = koreanKey;
     }
 
     public Long getId() {
