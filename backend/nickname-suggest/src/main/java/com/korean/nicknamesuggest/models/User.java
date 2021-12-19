@@ -19,8 +19,19 @@ public class User {
     @Column(name = "user_gender")
     private String gender;
 
+    @Column(name = "user_country")
+    private String country;
+
     public User() {
 
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public Long getId() {

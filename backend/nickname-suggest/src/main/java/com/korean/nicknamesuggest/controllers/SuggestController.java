@@ -37,6 +37,7 @@ public class SuggestController {
         user.setGender("female");
         user.setKey(id);
         user.setName(name);
+        user.setCountry("korea");
 
         Optional<Korean> korean = koreanRepository.findById(id);
         userRepository.save(user);
