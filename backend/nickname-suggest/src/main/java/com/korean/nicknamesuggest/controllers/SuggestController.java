@@ -27,70 +27,33 @@ public class SuggestController {
 
     @GetMapping("/female/{name}")
     public ArrayList<String> suggestFemaleController(@PathVariable String name) {
+        ArrayList<String> suggestFemaleName = new ArrayList();
         logger.info("Start suggestFemaleController");
         logger.info("name : "+name);
-
-
-
-        String id = name.substring(0,1);
-        String country = "korea";
-        User user = new User();
-        user.setGender("female");
-        user.setKey(id);
-        user.setName(name);
-        user.setCountry(country);
-
-        Optional<Korean> korean = koreanRepository.findById(id);
-        userRepository.save(user);
-
-        logger.info("name   : "+user.getName());
-        logger.info("id     : "+user.getId());
-        logger.info("key    : "+user.getKey());
-        logger.info("gender : "+user.getGender());
-
-        ArrayList<String> list = new ArrayList();
-        list.add(korean.get().getName());
-        list.add(korean.get().getPronounce());
-        return list;
-    }
-
-
-    @GetMapping("/test")
-    public void test() {
         try {
-
-            Korean k1 = new Korean();
-            k1.setKey("da");
-            k1.setName("다은");
-            k1.setGender("female");
-            k1.setPronounce("da-un");
-            koreanRepository.save(k1);
-
-            Korean k2 = new Korean();
-            k2.setKey("aa");
-            k2.setName("이유");
-            k2.setGender("female");
-            k2.setPronounce("iu");
-            koreanRepository.save(k2);
-
-
+            String id = name.substring(0,1);
+            String country = "korea";
             User user = new User();
             user.setGender("female");
-            user.setKey("aa");
-            user.setName("aajin");
-            Optional<Korean> k = koreanRepository.findById("a");
+            user.setKey(id);
+            user.setName(name);
+            user.setCountry(country);
+
+            Optional<Korean> korean = koreanRepository.findById(id);
             userRepository.save(user);
 
-            User user2 = new User();
-            user2.setGender("female");
-            user2.setKey("da");
-            user2.setName("darkman");
-            Optional<Korean> korean2 = koreanRepository.findById("d");
-            userRepository.save(user2);
+            logger.info("name   : "+user.getName());
+            logger.info("id     : "+user.getId());
+            logger.info("key    : "+user.getKey());
+            logger.info("gender : "+user.getGender());
 
-        } catch (Exception e){
-            System.out.println("exception");
+            suggestFemaleName.add(korean.get().getName());
+            suggestFemaleName.add(korean.get().getPronounce());
+            return suggestFemaleName;
+        } catch (Exception e) {
+            logger.error("API cannot make suggest female name");
+            suggestFemaleName.add("error");
+            return suggestFemaleName;
         }
     }
-
 }

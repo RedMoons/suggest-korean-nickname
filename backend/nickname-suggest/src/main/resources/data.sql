@@ -1,7 +1,6 @@
 --INSERT INTO USERS (user_id, user_key, user_name, user_gender, korean) VALUES
 --  (1, 'ju', 'juhyung', 'female');
-
-INSERT INTO KOREAN (korean_id, korean_key, korean_name, korean_pronounce, korean_gender) VALUES
+INSERT INTO korean (korean_id, korean_key, korean_name, korean_pronounce, korean_gender) VALUES
   ('1', 'a', '아윤', 'Ayun', 'female'),
   ('2', 'b', '봄', 'Bom', 'female'),
   ('3', 'c', '채아', 'Chea', 'female'),
@@ -11,7 +10,7 @@ INSERT INTO KOREAN (korean_id, korean_key, korean_name, korean_pronounce, korean
   ('7', 'g', '가은', 'Ga-eun', 'female'),
   ('8', 'h', '하나', 'Hana', 'female'),
   ('9', 'i', '이나', 'Ina', 'female'),
-  ('10', 'j', '지우', 'Ji-u', 'female'),
+  ('10', 'j', '지우', 'Ji-Woo', 'female'),
   ('11', 'k', '채이', 'Chaei', 'female'),
   ('12', 'l', '로아', 'Loa', 'female'),
   ('13', 'm', '민아', 'Mina', 'female'),
@@ -28,7 +27,6 @@ INSERT INTO KOREAN (korean_id, korean_key, korean_name, korean_pronounce, korean
   ('24', 'x', '승아', 'Seung-a', 'female'),
   ('25', 'y', '윤아', 'Yuna', 'female'),
   ('26', 'z', '지우', 'Ji-u', 'female');
-
 
 --INSERT INTO KOREAN (korean_id, korean_key, korean_name, korean_pronounce, korean_gender) VALUES
 --  ('1', 'aa', '아윤', 'Ayun', 'female'),

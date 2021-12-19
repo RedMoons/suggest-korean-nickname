@@ -5,7 +5,7 @@ CREATE TABLE users (
   user_key VARCHAR(20) NOT NULL,
   user_name VARCHAR(100) NOT NULL,
   user_gender VARCHAR(20) DEFAULT NULL,
-  country VARCHAR(100) DEFAULT NULL
+  user_country VARCHAR(100) DEFAULT NULL
 );
 
 DROP TABLE IF EXISTS korean;
