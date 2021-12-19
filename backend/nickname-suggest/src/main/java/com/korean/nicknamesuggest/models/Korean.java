@@ -5,11 +5,11 @@ import java.util.List;
 
 @Entity(name = "korean")
 public class Korean {
-    @Id
+
     @Column(name = "korean_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @Id
     @Column(name = "korean_key")
     private String key;
 

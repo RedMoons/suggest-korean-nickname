@@ -4,8 +4,6 @@ import com.korean.nicknamesuggest.models.Korean;
 import com.korean.nicknamesuggest.models.User;
 import com.korean.nicknamesuggest.repositories.KoreanRepository;
 import com.korean.nicknamesuggest.repositories.UserRepository;
-import com.korean.nicknamesuggest.services.KoreanService;
-import com.korean.nicknamesuggest.services.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @RestController
 public class SuggestController {
@@ -40,7 +37,7 @@ public class SuggestController {
         user.setKey(key);
         user.setName(name);
 
-        Korean korean = koreanRepository.findByKey(key);
+        Korean korean = koreanRepository.findById(key);
         user.setKorean(korean);
         userRepository.save(user);
 
@@ -79,7 +76,7 @@ public class SuggestController {
             user.setGender("female");
             user.setKey("aa");
             user.setName("aajin");
-            Korean k = koreanRepository.findByKey("aa");
+            Korean k = koreanRepository.findById("a");
             user.setKorean(k);
             userRepository.save(user);
 
@@ -87,7 +84,7 @@ public class SuggestController {
             user2.setGender("female");
             user2.setKey("da");
             user2.setName("darkman");
-            Korean korean2 = koreanRepository.findByKey("da");
+            Korean korean2 = koreanRepository.findById("d");
             user2.setKorean(korean2);
             userRepository.save(user2);
 
