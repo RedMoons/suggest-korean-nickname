@@ -19,8 +19,12 @@ public class User {
     @Column(name = "user_gender")
     private String gender;
 
-    @OneToMany
-    @JoinColumn(name = "korean_key")
+    @OneToOne
+    @JoinTable(
+            name = "korean",
+            joinColumns = @JoinColumn(name = "korean_key"),
+            inverseJoinColumns = @JoinColumn(name = "korean_key")
+    )
     private String koreanKey;
 
     public User() {
