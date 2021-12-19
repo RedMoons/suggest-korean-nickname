@@ -5,7 +5,6 @@ CREATE TABLE users (
   user_key VARCHAR(20) NOT NULL,
   user_name VARCHAR(100) NOT NULL,
   user_gender VARCHAR(20) DEFAULT NULL,
-  korean_key INT NOT NULL,
   country VARCHAR(100) NOT NULL
 );
 

@@ -19,24 +19,8 @@ public class User {
     @Column(name = "user_gender")
     private String gender;
 
-    @OneToOne
-    @JoinTable(
-            name = "korean",
-            joinColumns = @JoinColumn(name = "korean_key"),
-            inverseJoinColumns = @JoinColumn(name = "korean_key")
-    )
-    private String koreanKey;
-
     public User() {
 
-    }
-
-    public String getKoreanKey() {
-        return koreanKey;
-    }
-
-    public void setKoreanKey(String koreanKey) {
-        this.koreanKey = koreanKey;
     }
 
     public Long getId() {

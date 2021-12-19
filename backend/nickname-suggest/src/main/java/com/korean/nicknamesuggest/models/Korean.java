@@ -1,6 +1,7 @@
 package com.korean.nicknamesuggest.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "korean")
@@ -22,9 +23,21 @@ public class Korean {
     @Column(name = "korean_gender")
     private String gender;
 
+    @OneToMany
+    @JoinColumn(name = "user_key")
+    private List<User> users = new ArrayList<>();
+
 
     public Korean() {
 
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 
     public Long getId() {

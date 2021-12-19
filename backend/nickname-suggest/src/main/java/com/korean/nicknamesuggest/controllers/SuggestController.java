@@ -39,7 +39,6 @@ public class SuggestController {
         user.setName(name);
 
         Optional<Korean> korean = koreanRepository.findById(id);
-        user.setKoreanKey(korean.get().getKey());
         userRepository.save(user);
 
         logger.info("name   : "+user.getName());
@@ -78,7 +77,6 @@ public class SuggestController {
             user.setKey("aa");
             user.setName("aajin");
             Optional<Korean> k = koreanRepository.findById("a");
-            user.setKoreanKey(k.get().getKey());
             userRepository.save(user);
 
             User user2 = new User();
@@ -86,7 +84,6 @@ public class SuggestController {
             user2.setKey("da");
             user2.setName("darkman");
             Optional<Korean> korean2 = koreanRepository.findById("d");
-            user2.setKoreanKey(korean2.get().getKey());
             userRepository.save(user2);
 
         } catch (Exception e){
