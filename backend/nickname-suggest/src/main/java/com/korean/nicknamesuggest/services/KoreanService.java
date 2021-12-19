@@ -25,8 +25,4 @@ public class KoreanService {
     public Optional<Korean> findById(Long id) {
         return koreanRepository.findById(id);
     }
-
-    public Korean findByKey(String key) {
-        return koreanRepository.findByKey(key);
-    }
 }
