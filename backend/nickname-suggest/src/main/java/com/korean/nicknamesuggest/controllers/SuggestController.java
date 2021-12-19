@@ -33,11 +33,12 @@ public class SuggestController {
 
 
         String id = name.substring(0,1);
+        String country = "korea";
         User user = new User();
         user.setGender("female");
         user.setKey(id);
         user.setName(name);
-        user.setCountry("korea");
+        user.setCountry(country);
 
         Optional<Korean> korean = koreanRepository.findById(id);
         userRepository.save(user);
