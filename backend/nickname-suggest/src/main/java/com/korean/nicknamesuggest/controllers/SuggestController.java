@@ -26,11 +26,16 @@ public class SuggestController {
     private UserRepository userRepository;
 
     @GetMapping("/female/{name}")
-    public ArrayList<String> suggestFemaleController(@PathVariable String name) {
+    public ArrayList<String> suggestFemaleController(@PathVariable String name) throws Exception {
         ArrayList<String> suggestFemaleName = new ArrayList();
         logger.info("Start suggestFemaleController");
         logger.info("name : "+name);
         try {
+            if (! name.matches("^[a-z]*$")) {
+                logger.error("name is not small alphabet");
+                throw new Exception("name error");
+            }
+
             String id = name.substring(0,1);
             String country = "korea";
             User user = new User();
@@ -52,8 +57,7 @@ public class SuggestController {
             return suggestFemaleName;
         } catch (Exception e) {
             logger.error("API cannot make suggest female name");
-            suggestFemaleName.add("error");
-            return suggestFemaleName;
+            throw new Exception("API error", e);
         }
     }
 }
